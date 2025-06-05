@@ -3,10 +3,7 @@
 import { motion } from "framer-motion"
 import { Github, Linkedin, Facebook, Menu, X } from "lucide-react"
 import { useState } from "react"
-<<<<<<< HEAD
 import {ThemeToggle} from "@/components/theme-toggle";
-=======
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,15 +14,9 @@ export function Header() {
   }
 
   const socialLinks = [
-<<<<<<< HEAD
     { icon: Github, href: "https://github.com/alaeddinedaly", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/daly-ala-eddine-604411341/", label: "LinkedIn" },
     { icon: Facebook, href: "https://www.facebook.com/ala.daly.564", label: "Facebook" },
-=======
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Facebook, href: "#", label: "Facebook" },
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
   ]
 
   return (
@@ -60,10 +51,7 @@ export function Header() {
                 {item}
               </motion.button>
             ))}
-<<<<<<< HEAD
 
-=======
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
           </nav>
 
           {/* Social Links */}
@@ -72,11 +60,8 @@ export function Header() {
               <motion.a
                 key={label}
                 href={href}
-<<<<<<< HEAD
                 target={"_blank"}
                 rel="noopener noreferrer"
-=======
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
@@ -89,10 +74,7 @@ export function Header() {
                 <Icon size={18} />
               </motion.a>
             ))}
-<<<<<<< HEAD
             <ThemeToggle />
-=======
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
           </div>
 
           {/* Mobile Menu Button */}

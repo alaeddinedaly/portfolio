@@ -47,11 +47,7 @@ export function Hero() {
             className="text-6xl md:text-8xl font-bold"
           >
             <span className="bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 bg-clip-text text-transparent">
-<<<<<<< HEAD
               Aladin
-=======
-              Alaa Eddine Daly
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
             </span>
           </motion.h1>
 
@@ -64,7 +60,6 @@ export function Hero() {
             <MapPin className="w-5 h-5 text-slate-400" />
             <span>Tunisia</span>
             <span className="w-1 h-1 bg-slate-500 rounded-full" />
-<<<<<<< HEAD
             <span
                 className="
                 text-transparent bg-clip-text
@@ -76,9 +71,6 @@ export function Hero() {
             >
               Full-Stack Developer
             </span>
-=======
-            <span className="text-slate-300">Full-Stack Developer</span>
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
           </motion.div>
 
           <motion.p

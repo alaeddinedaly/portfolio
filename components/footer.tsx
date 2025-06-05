@@ -5,15 +5,9 @@ import { Github, Linkedin, Facebook, Heart, Code } from "lucide-react"
 
 export function Footer() {
   const socialLinks = [
-<<<<<<< HEAD
     { icon: Github, href: "https://github.com/alaeddinedaly", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/daly-ala-eddine-604411341/", label: "LinkedIn" },
     { icon: Facebook, href: "https://www.facebook.com/ala.daly.564", label: "Facebook" },
-=======
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Facebook, href: "#", label: "Facebook" },
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
   ]
 
   return (
@@ -33,7 +27,6 @@ export function Footer() {
             >
               Portfolio
             </motion.h3>
-<<<<<<< HEAD
             <p
                 className="
                 text-transparent bg-clip-text
@@ -45,9 +38,6 @@ export function Footer() {
             >
               Full-Stack Developer
             </p>
-=======
-            <p className="text-slate-400">Full-Stack Developer</p>
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
             <p className="text-slate-500 text-sm mt-1">Tunisia</p>
           </div>
 
@@ -56,11 +46,8 @@ export function Footer() {
               <motion.a
                 key={label}
                 href={href}
-<<<<<<< HEAD
                 target="_blank"
                 rel="noopener noreferrer"
-=======
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -84,11 +71,7 @@ export function Footer() {
               Made with <Heart className="w-4 h-4 text-red-500" fill="currentColor" /> and{" "}
               <Code className="w-4 h-4 text-slate-400" />
             </motion.p>
-<<<<<<< HEAD
             <p className="text-slate-500 text-sm">© 2025 Portfolio. All rights reserved.</p>
-=======
-            <p className="text-slate-500 text-sm">© 2024 Portfolio. All rights reserved.</p>
->>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
           </div>
         </motion.div>
 
