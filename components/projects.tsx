@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Github, Folder } from "lucide-react"
+import {Github, Folder, Linkedin} from "lucide-react"
 
 export function Projects() {
   const projects = [
@@ -12,7 +12,7 @@ export function Projects() {
       description:
         "A modern file zipper tool with intuitive interface and lightning-fast compression algorithms for seamless file management.",
       tech: ["python", "tkinter", "zipfile"],
-      github: "#",
+      github: "https://github.com/alaeddinedaly/Zip-it",
       color: "slate-500",
     },
     {
@@ -20,7 +20,7 @@ export function Projects() {
       description:
         "Complete restaurant management system featuring Java Swing frontend with robust SQL database backend for inventory and order management.",
       tech: ["Java", "Swing", "SQL", "JDBC"],
-      github: "#",
+      github: "https://github.com/alaeddinedaly/restaurant",
       color: "slate-600",
     },
     {
@@ -28,7 +28,7 @@ export function Projects() {
       description:
         "Mobile finance tracker built with React Native and Expo, featuring expense tracking, budget management, and financial insights.",
       tech: ["React Native", "Expo", "JavaScript", "PostgreSQL"],
-      github: "#",
+      github: "https://www.linkedin.com/feed/update/urn:li:activity:7333182985912942592/",
       color: "slate-400",
     },
     {
@@ -36,7 +36,7 @@ export function Projects() {
       description:
           "My personal portfolio website showcasing my projects, skills, and experience with a modern design and smooth animations.",
       tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      github: "#",
+      github: "https://github.com/alaeddinedaly/portfolio",
       color: "slate-400",
     },
     {
@@ -44,7 +44,7 @@ export function Projects() {
       description:
           "A fast-paced 2D shooter game built with Unity.",
       tech: ["Unity", "C#", "Game Development"],
-      github: "#",
+      github: "https://github.com/alaeddinedaly/simple-2D-shooting-game",
       color: "slate-400",
     },
   ]
@@ -129,17 +129,23 @@ export function Projects() {
                       asChild
                       data-cursor-hover
                     >
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="flex items-center gap-2"
+                      {project.title !== "Finora" ? (<motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="flex items-center gap-2"
                       >
                         <Github className="w-4 h-4" />
                         View Code
-                      </motion.a>
+                      </motion.a>) :
+                          (
+                              <div>
+                                <Linkedin className="w-4 h-4" />
+                                View Post
+                              </div>
+                          )}
                     </Button>
                   </div>
                 </CardContent>

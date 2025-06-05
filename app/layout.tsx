@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Portfolio - Full-Stack Developer",
     description: "Stunning portfolio showcasing modern web development skills and creative projects.",
     icons: {
-        icon: "/favicon.ico",
+        icon: "/fav.png",
     },
     generator: "v0.dev",
 };
