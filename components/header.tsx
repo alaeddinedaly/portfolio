@@ -1,0 +1,125 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Github, Linkedin, Facebook, Menu, X } from "lucide-react"
+import { useState } from "react"
+
+export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    setIsMenuOpen(false)
+  }
+
+  const socialLinks = [
+    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+  ]
+
+  return (
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="fixed top-0 w-full z-40 backdrop-blur-xl bg-slate-950/70 border-b border-slate-800/30"
+    >
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex justify-between items-center">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent"
+          >
+            Portfolio
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            {["Home", "About", "Tech", "Projects", "Contact"].map((item, index) => (
+              <motion.button
+                key={item}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -1, scale: 1.02 }}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="text-slate-300 hover:text-slate-100 transition-all duration-300 data-cursor-hover"
+                data-cursor-hover
+              >
+                {item}
+              </motion.button>
+            ))}
+          </nav>
+
+          {/* Social Links */}
+          <div className="hidden md:flex space-x-4">
+            {socialLinks.map(({ icon: Icon, href, label }, index) => (
+              <motion.a
+                key={label}
+                href={href}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                whileHover={{ scale: 1.1, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 rounded-full bg-slate-800/30 text-slate-400 hover:text-slate-200 hover:bg-slate-700/30 border border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 data-cursor-hover"
+                aria-label={label}
+                data-cursor-hover
+              >
+                <Icon size={18} />
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-slate-300 data-cursor-hover"
+            data-cursor-hover
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
+        </div>
+
+        {/* Mobile Menu */}
+        <motion.div
+          initial={false}
+          animate={{ height: isMenuOpen ? "auto" : 0, opacity: isMenuOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="py-4 space-y-4">
+            {["Home", "About", "Tech", "Projects", "Contact"].map((item) => (
+              <motion.button
+                key={item}
+                whileHover={{ x: 5 }}
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="block w-full text-left text-slate-300 hover:text-slate-100 transition-colors data-cursor-hover"
+                data-cursor-hover
+              >
+                {item}
+              </motion.button>
+            ))}
+            <div className="flex space-x-4 pt-4">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  whileHover={{ scale: 1.05 }}
+                  className="p-2 rounded-full bg-slate-800/30 text-slate-400 hover:text-slate-200 data-cursor-hover"
+                  aria-label={label}
+                  data-cursor-hover
+                >
+                  <Icon size={18} />
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.header>
+  )
+}
