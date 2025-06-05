@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+<<<<<<< HEAD
 import { useTheme } from "next-themes"
 
 interface Particle {
@@ -138,4 +139,126 @@ export function AnimatedBackground() {
             </div>
         </div>
     )
+=======
+
+interface Particle {
+  id: number
+  x: number
+  y: number
+  size: number
+  speedX: number
+  speedY: number
+}
+
+export function AnimatedBackground() {
+  const [particles, setParticles] = useState<Particle[]>([])
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const generateParticles = () => {
+      const newParticles: Particle[] = []
+      for (let i = 0; i < 40; i++) {
+        newParticles.push({
+          id: i,
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: Math.random() * 2 + 1,
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: (Math.random() - 0.5) * 0.3,
+        })
+      }
+      setParticles(newParticles)
+    }
+
+    generateParticles()
+    window.addEventListener("resize", generateParticles)
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+
+    return () => {
+      window.removeEventListener("resize", generateParticles)
+      window.removeEventListener("mousemove", handleMouseMove)
+    }
+  }, [])
+
+  useEffect(() => {
+    const animateParticles = () => {
+      setParticles((prevParticles) =>
+        prevParticles.map((particle) => {
+          const newX = particle.x + particle.speedX
+          const newY = particle.y + particle.speedY
+
+          if (newX < 0 || newX > window.innerWidth) particle.speedX *= -1
+          if (newY < 0 || newY > window.innerHeight) particle.speedY *= -1
+
+          return {
+            ...particle,
+            x: newX,
+            y: newY,
+          }
+        }),
+      )
+    }
+
+    const interval = setInterval(animateParticles, 50)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/30 via-slate-950 to-slate-900/30" />
+
+      {/* Animated particles */}
+      {particles.map((particle) => {
+        const distance = Math.sqrt(
+          Math.pow(mousePosition.x - particle.x, 2) + Math.pow(mousePosition.y - particle.y, 2),
+        )
+        const isNearMouse = distance < 80
+
+        return (
+          <motion.div
+            key={particle.id}
+            className="absolute rounded-full"
+            style={{
+              left: particle.x,
+              top: particle.y,
+              width: particle.size,
+              height: particle.size,
+            }}
+            animate={{
+              scale: isNearMouse ? 1.5 : 1,
+              opacity: isNearMouse ? 0.8 : 0.4,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <div
+              className={`w-full h-full rounded-full ${
+                isNearMouse ? "bg-slate-400 shadow-sm shadow-slate-400/30" : "bg-slate-500"
+              }`}
+            />
+          </motion.div>
+        )
+      })}
+
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+    </div>
+  )
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
 }

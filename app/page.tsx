@@ -10,6 +10,7 @@ import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
+<<<<<<< HEAD
 import {AiButton} from "@/components/ai-button";
 
 export default function Home() {
@@ -17,6 +18,13 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-300">
         <AiButton />
         <CustomCursor />
+=======
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
+      <CustomCursor />
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
       <AnimatedBackground />
       <SmoothScroll>
         <Header />
@@ -29,7 +37,10 @@ export default function Home() {
         </main>
         <Footer />
       </SmoothScroll>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
     </div>
   )
 }

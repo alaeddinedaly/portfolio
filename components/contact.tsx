@@ -35,7 +35,11 @@ export function Contact() {
     {
       icon: Mail,
       title: "Email",
+<<<<<<< HEAD
       value: "dalyalaeddine@gmail.com",
+=======
+      value: "your.email@example.com",
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
     },
     {
       icon: MapPin,
@@ -107,7 +111,11 @@ export function Contact() {
                 >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
+<<<<<<< HEAD
                     className="w-12 h-12 rounded-2xl bg-slate-700/30 border border-slate-600/30 flex items-center justify-center group-hover:border-slate-500/50 transition-all duration-300"
+=======
+                    className="w-12 h-12 rounded-xl bg-slate-700/30 border border-slate-600/30 flex items-center justify-center group-hover:border-slate-500/50 transition-all duration-300"
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
                   >
                     <info.icon className="w-6 h-6 text-slate-400 group-hover:text-slate-300 transition-colors duration-300" />
                   </motion.div>

@@ -37,21 +37,36 @@ export default function ExperienceSection() {
             <div className="flex w-full rounded-full overflow-hidden border border-white/20 bg-black mb-12">
                 <button
                     onClick={() => setActiveTab("work")}
+<<<<<<< HEAD
                     className={`w-1/2 py-3 text-center transition-colors duration-200 ${
                         activeTab === "work"
                             ? "bg-white text-black"
                             : "text-white hover:bg-white/10"
                     }`}
 
+=======
+                    className={`w-1/2 py-3 text-center text-white transition-colors duration-200 ${
+                        activeTab === "work"
+                            ? "bg-white text-black"
+                            : "hover:bg-white/10"
+                    }`}
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
                 >
                     Work
                 </button>
                 <button
                     onClick={() => setActiveTab("studies")}
+<<<<<<< HEAD
                     className={`w-1/2 py-3 text-center transition-colors duration-200 ${
                         activeTab === "studies"
                             ? "bg-white text-black"
                             : "text-white hover:bg-white/10"
+=======
+                    className={`w-1/2 py-3 text-center text-white transition-colors duration-200 ${
+                        activeTab === "studies"
+                            ? "bg-white text-black"
+                            : "hover:bg-white/10"
+>>>>>>> a07d001e94d4834cee13f39d4afddd68990b20eb
                     }`}
                 >
                     Studies
