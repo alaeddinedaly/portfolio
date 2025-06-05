@@ -60,7 +60,9 @@ export function Contact() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <span className="text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent">
               Get In Touch
             </span>
           </h2>
@@ -86,10 +88,11 @@ export function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-slate-200">Let's talk about your project</h3>
+              <h3 className="text-3xl font-bold mb-6 text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent">Let's talk about your project</h3>
               <p className="text-lg text-slate-400 leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. Whether you have a question or just
-                want to say hi, I'll try my best to get back to you!
+                Feel free to reach out or ask chatbot about me!
               </p>
             </div>
 
@@ -112,7 +115,9 @@ export function Contact() {
                     <info.icon className="w-6 h-6 text-slate-400 group-hover:text-slate-300 transition-colors duration-300" />
                   </motion.div>
                   <div>
-                    <h4 className="font-semibold text-slate-200 group-hover:text-slate-100 transition-colors">
+                    <h4 className="font-semibold text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent transition-colors">
                       {info.title}
                     </h4>
                     <p className="text-slate-400 group-hover:text-slate-300 transition-colors">{info.value}</p>

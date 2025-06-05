@@ -64,7 +64,9 @@ export function TechStack() {
               className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <span className="text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent">
               Tech Stack
             </span>
             </h2>
@@ -89,7 +91,9 @@ export function TechStack() {
                     transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
                     viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl font-semibold mb-8 text-center text-slate-300">{category}</h3>
+                  <h3 className="text-2xl font-semibold mb-8 text-center text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent">{category}</h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
                     {technologies
                         .filter((tech) => tech.category === category)
@@ -119,7 +123,9 @@ export function TechStack() {
                                 />
                               </motion.div>
 
-                              <span className="text-slate-300 group-hover:text-slate-100 font-medium transition-colors duration-300">
+                              <span className="text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent font-medium transition-colors duration-300">
                         {tech.name}
                       </span>
 

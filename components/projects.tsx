@@ -27,7 +27,7 @@ export function Projects() {
       title: "Finora",
       description:
         "Mobile finance tracker built with React Native and Expo, featuring expense tracking, budget management, and financial insights.",
-      tech: ["React Native", "Expo", "JavaScript", "SQLite"],
+      tech: ["React Native", "Expo", "JavaScript", "PostgreSQL"],
       github: "#",
       color: "slate-400",
     },
@@ -60,7 +60,9 @@ export function Projects() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <span className="text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent">
               Featured Projects
             </span>
           </h2>

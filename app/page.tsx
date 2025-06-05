@@ -11,8 +11,16 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import {AiButton} from "@/components/ai-button";
+import {useEffect} from "react";
 
 export default function Home() {
+    useEffect(() => {
+        if (performance.navigation.type === 1) {
+            console.log("Page was reloaded");
+            document.documentElement.classList.add("dark")
+            // Do something on reload
+        }
+    }, []);
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-300">
         <AiButton />

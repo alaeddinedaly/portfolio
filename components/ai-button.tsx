@@ -90,7 +90,7 @@ export function AiButton() {
                         <div className="bg-white p-2 rounded-full mr-2">
                             <Robot className="h-5 w-5 text-black" />
                         </div>
-                        <h3 className="font-medium text-white">Chat Assistant</h3>
+                        <h3 className="font-medium text-white">Portfolio Assistant</h3>
                     </div>
                     <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" onClick={toggleChat}>
                         <X className="h-4 w-4 text-white" />

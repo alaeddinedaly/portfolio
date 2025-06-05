@@ -34,28 +34,31 @@ export default function ExperienceSection() {
     return (
         <section className="py-20 px-6 max-w-5xl mx-auto w-full">
             {/* Tabs */}
-            <div className="flex w-full rounded-full overflow-hidden border border-white/20 bg-black mb-12">
+            <div className="flex w-full rounded-full overflow-hidden border border-white/20 bg-slate-700 mb-12">
                 <button
                     onClick={() => setActiveTab("work")}
-                    className={`w-1/2 py-3 text-center transition-colors duration-200 ${
+                    className={`w-1/2 py-3 text-center transition-colors duration-200
+    ${
                         activeTab === "work"
-                            ? "bg-white text-black"
-                            : "text-white hover:bg-white/10"
+                            ? "bg-gray-200 text-slate-500 dark:bg-white dark:text-slate-500"
+                            : "text-slate-500 hover:bg-black/5 dark:text-white dark:hover:bg-white/10"
                     }`}
-
                 >
                     Work
                 </button>
+
                 <button
                     onClick={() => setActiveTab("studies")}
-                    className={`w-1/2 py-3 text-center transition-colors duration-200 ${
+                    className={`w-1/2 py-3 text-center transition-colors duration-200
+    ${
                         activeTab === "studies"
-                            ? "bg-white text-black"
-                            : "text-white hover:bg-white/10"
+                            ? "bg-gray-200 text-slate-500 dark:bg-white dark:text-slate-500"
+                            : "text-slate-500 hover:bg-black/5 dark:text-white dark:hover:bg-white/10"
                     }`}
                 >
                     Studies
                 </button>
+
             </div>
 
             {/* Timeline */}

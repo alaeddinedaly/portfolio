@@ -36,8 +36,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/40 backdrop-blur-sm border border-slate-700/30"
           >
-            <Sparkles className="w-4 h-4 text-slate-400" />
-            <span className="text-sm text-slate-300">Not available for work</span>
+            <Sparkles className="w-4 h-4 text-slate-700 dark:text-slate-400" />
+            <span className="text-sm text-slate-100">Not available for work</span>
           </motion.div>
 
           <motion.h1
@@ -46,9 +46,16 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-6xl md:text-8xl font-bold"
           >
-            <span className="bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 bg-clip-text text-transparent">
-              Aladin
-            </span>
+            <span
+                className="
+    text-slate-400
+    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+    dark:bg-clip-text dark:text-transparent
+  "
+            >
+  Aladin
+</span>
+
           </motion.h1>
 
           <motion.div
@@ -58,7 +65,9 @@ export function Hero() {
             className="flex items-center justify-center gap-3 text-lg text-slate-300"
           >
             <MapPin className="w-5 h-5 text-slate-400" />
-            <span>Tunisia</span>
+            <span className={"text-slate-400\n" +
+                "    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300\n" +
+                "    dark:bg-clip-text dark:text-transparent"}>Tunisia</span>
             <span className="w-1 h-1 bg-slate-500 rounded-full" />
             <span
                 className="
@@ -79,7 +88,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
           >
-            Currently working at <span className="text-slate-200 font-semibold">SMOFT Tunisia</span>, crafting digital
+            Currently working at <span className="text-slate-400 font-semibold">SMOFT Tunisia</span>, crafting digital
             experiences with modern technologies
           </motion.p>
 

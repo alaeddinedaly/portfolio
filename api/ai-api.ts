@@ -1,6 +1,8 @@
+"use server";
+
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyC2HcXE0liesuMZOa7ePi9_YdW6biL5WQ0" });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Aladin's portfolio information as context for the AI
 const portfolioContext = `
