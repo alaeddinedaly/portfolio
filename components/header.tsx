@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Github, Linkedin, Facebook, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
+import FlagToggle from "@/components/toggle-language";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -83,20 +84,26 @@ export function Header() {
                     )}
                   </motion.a>
               ))}
-              <ThemeToggle />
+
             </div>
 
             {/* Mobile Menu Button */}
-            <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 text-slate-300 data-cursor-hover"
-                data-cursor-hover
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
+            <div className="gap-x-2 flex items-center">
+              <FlagToggle className={"pt-6"}/>
+              <ThemeToggle />
+              <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="md:hidden p-2 text-slate-300 data-cursor-hover"
+                  data-cursor-hover
+              >
+
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.button>
+            </div>
           </div>
+
 
           {/* Mobile Menu */}
           <motion.div
@@ -138,6 +145,7 @@ export function Header() {
                       )}
                     </motion.a>
                 ))}
+
               </div>
             </div>
           </motion.div>

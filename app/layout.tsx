@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import {ToastProvider, ToastViewport} from "@/components/ui/toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,15 +12,9 @@ export const metadata: Metadata = {
     icons: {
         icon: "/fav.png",
     },
-    generator: "v0.dev",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode;
-}) {
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
         <body className={`${inter.className} cursor-none`}>
@@ -27,9 +22,12 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="dark"
             enableSystem={false}
-            storageKey={undefined} // ✅ Force fresh dark mode on every load
+            storageKey={undefined}
         >
-            {children}
+            <ToastProvider>
+                {children}
+                <ToastViewport />
+            </ToastProvider>
         </ThemeProvider>
         </body>
         </html>

@@ -36,7 +36,7 @@ export function AnimatedBackground() {
                     id: i,
                     x: Math.random() * window.innerWidth,
                     y: Math.random() * window.innerHeight,
-                    size: Math.random() * 4 + 2,
+                    size: Math.random() * 8 + 2,
                     speedX: (Math.random() - 0.5) * 0.3,
                     speedY: (Math.random() - 0.5) * 0.3,
                 })

@@ -62,7 +62,7 @@ export function AiButton() {
             const response = await askAladinAI(inputValue);
             addBotMessage(response);
         }catch(err){
-            console.log("Error fetching AI response:", err);
+            addBotMessage("Sorry, I couldn't process your request at the moment. Please try again later.");
         }
     }
 
