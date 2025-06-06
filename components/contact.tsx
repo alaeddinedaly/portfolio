@@ -227,7 +227,7 @@ export function Contact() {
                       />
                     </motion.div>
 
-                    <motion.div whileHover={typeof window !== "undefined" && window.innerWidth > 768 ? { scale: 1.01 } : undefined}>
+                    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
                       <Button
                           type="submit"
                           className="w-full bg-slate-300 hover:bg-slate-300 transition-all duration-300 rounded-2xl text-slate-800 font-semibold flex items-center justify-center gap-2"
