@@ -27,7 +27,7 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
+    console.log("Form submitted:")
     emailjs
         .send(
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
@@ -56,11 +56,12 @@ export function Contact() {
   }, [status])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
+    setFormData((prev) => {
+      const updated = { ...prev, [e.target.name]: e.target.value };
+      console.log(updated); // Debug log
+      return updated;
+    });
+  };
 
   const contactInfo = [
     {
@@ -181,7 +182,7 @@ export function Contact() {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover"
+                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover rounded-2xl"
                           required
                           data-cursor-hover
                       />
@@ -201,7 +202,7 @@ export function Contact() {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover"
+                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover rounded-2xl"
                           required
                           data-cursor-hover
                       />
@@ -220,16 +221,16 @@ export function Contact() {
                           onChange={handleChange}
                           onFocus={() => setFocusedField("message")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 pt-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 min-h-[120px] transition-all duration-300 data-cursor-hover"
+                          className="pl-12 pt-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 min-h-[120px] transition-all duration-300 data-cursor-hover rounded-2xl"
                           required
                           data-cursor-hover
                       />
                     </motion.div>
 
-                    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                    <motion.div>
                       <Button
                           type="submit"
-                          className="w-full bg-slate-700 hover:bg-slate-600 transition-all duration-300"
+                          className="w-full bg-slate-300 hover:bg-slate-300 transition-all duration-300 rounded-2xl text-slate-800 font-semibold flex items-center justify-center gap-2"
                           size="lg"
                           disabled={!formData.name || !formData.email || !formData.message}
                       >
