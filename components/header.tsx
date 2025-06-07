@@ -5,14 +5,24 @@ import { Github, Linkedin, Facebook, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import FlagToggle from "@/components/toggle-language";
+import {useTranslations} from "next-intl";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const t = useTranslations();
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
+
+  const menuItems = [
+    t('home'),
+    t('about'),
+    t('tech'),
+    t('projects'),
+    t('contact')
+  ];
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/alaeddinedaly", label: "GitHub" },
@@ -44,7 +54,7 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              {["Home", "About", "Tech", "Projects", "Contact"].map((item, index) => (
+              {menuItems.map((item, index) => (
                   <motion.button
                       key={item}
                       initial={{ opacity: 0, y: -20 }}
@@ -113,7 +123,7 @@ export function Header() {
               className="md:hidden overflow-hidden"
           >
             <div className="py-4 space-y-4">
-              {["Home", "About", "Tech", "Projects", "Contact"].map((item) => (
+              {menuItems.map((item) => (
                   <motion.button
                       key={item}
                       whileHover={{ x: 5 }}

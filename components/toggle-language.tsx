@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import {useLocale} from "@/lib/intl-context";
 
 export default function FlagToggle(className?: any) {
     const [language, setLanguage] = useState<'en' | 'fr'>('en');
+    const { locale, setLocale } = useLocale();
 
     const toggleLanguage = () => {
         setLanguage((prev) => (prev === 'en' ? 'fr' : 'en'));
+        setLocale((prev) => (prev === 'en' ? 'fr' : 'en'));
     };
 
     return (

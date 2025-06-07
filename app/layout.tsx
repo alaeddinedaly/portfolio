@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import {ToastProvider, ToastViewport} from "@/components/ui/toast";
+import {IntlProvider} from "@/lib/intl-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             storageKey={undefined}
         >
             <ToastProvider>
+                <IntlProvider>
                 {children}
+                </IntlProvider>
                 <ToastViewport />
             </ToastProvider>
         </ThemeProvider>

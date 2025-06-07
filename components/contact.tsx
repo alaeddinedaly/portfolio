@@ -10,8 +10,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MessageSquare, User, Send, MapPin, Phone, Terminal } from "lucide-react"
 import emailjs from 'emailjs-com'
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { useTranslations } from "next-intl"
 
 export function Contact() {
+  const t = useTranslations()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,7 +25,9 @@ export function Contact() {
   // status: "idle" | "success" | "error"
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
 
-  emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '')
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '')
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -57,11 +61,11 @@ export function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => {
-      const updated = { ...prev, [e.target.name]: e.target.value };
-      console.log(updated); // Debug log
-      return updated;
-    });
-  };
+      const updated = { ...prev, [e.target.name]: e.target.value }
+      console.log(updated) // Debug log
+      return updated
+    })
+  }
 
   const contactInfo = [
     {
@@ -71,12 +75,12 @@ export function Contact() {
     },
     {
       icon: MapPin,
-      title: "Location",
+      title: t('location'),
       value: "Tunisia-Sousse",
     },
     {
       icon: Phone,
-      title: "Phone Number",
+      title: t('phone_number'),
       value: "(+216) 58 247 509",
     },
   ]
@@ -92,13 +96,17 @@ export function Contact() {
               className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-slate-400
-    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
-    dark:bg-clip-text dark:text-transparent">
-              Get In Touch
+            <span
+                className="
+                text-slate-600
+                dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+                dark:bg-clip-text dark:text-transparent
+              "
+            >
+              {t('get_in_touch')}
             </span>
             </h2>
-            <p className="text-xl text-slate-400">Let's create something amazing together</p>
+            <p className="text-xl text-slate-700 dark:text-slate-400">{t('get_in_touch_info')}</p>
 
             {/* Animated section divider */}
             <motion.div
@@ -120,11 +128,17 @@ export function Contact() {
                 className="space-y-8"
             >
               <div>
-                <h3 className="text-3xl font-bold mb-6 text-slate-400
-    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
-    dark:bg-clip-text dark:text-transparent">Let's talk about your project</h3>
-                <p className="text-lg text-slate-400 leading-relaxed">
-                  Feel free to reach out or ask chatbot about me!
+                <h3
+                    className="
+                  text-3xl font-bold mb-6 text-slate-700
+                  dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+                  dark:bg-clip-text dark:text-transparent
+                "
+                >
+                  {t('lets_talk')}
+                </h3>
+                <p className="text-lg text-slate-700 dark:text-slate-400 leading-relaxed">
+                  {t('lets_talk_info')}
                 </p>
               </div>
 
@@ -142,17 +156,24 @@ export function Contact() {
                     >
                       <motion.div
                           whileHover={{ scale: 1.05 }}
-                          className="w-12 h-12 rounded-2xl bg-slate-700/30 border border-slate-600/30 flex items-center justify-center group-hover:border-slate-500/50 transition-all duration-300"
+                          className="w-12 h-12 rounded-2xl bg-gray-200 border border-gray-300 flex items-center justify-center group-hover:border-gray-400 transition-all duration-300 dark:bg-slate-700/30 dark:border-slate-600/30 dark:group-hover:border-slate-500/50"
                       >
-                        <info.icon className="w-6 h-6 text-slate-400 group-hover:text-slate-300 transition-colors duration-300" />
+                        <info.icon className="w-6 h-6 text-gray-600 group-hover:text-gray-700 transition-colors duration-300 dark:text-slate-400 dark:group-hover:text-slate-300" />
                       </motion.div>
                       <div>
-                        <h4 className="font-semibold text-slate-400
-    dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
-    dark:bg-clip-text dark:text-transparent transition-colors">
+                        <h4
+                            className="
+                        font-semibold text-gray-700
+                        dark:bg-gradient-to-r dark:from-slate-100 dark:via-slate-200 dark:to-slate-300
+                        dark:bg-clip-text dark:text-transparent
+                        transition-colors
+                      "
+                        >
                           {info.title}
                         </h4>
-                        <p className="text-slate-400 group-hover:text-slate-300 transition-colors">{info.value}</p>
+                        <p className="text-gray-600 group-hover:text-gray-700 transition-colors dark:text-slate-400 dark:group-hover:text-slate-300">
+                          {info.value}
+                        </p>
                       </div>
                     </motion.div>
                 ))}
@@ -166,23 +187,38 @@ export function Contact() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-              <Card className="bg-slate-800/20 backdrop-blur-sm border border-slate-700/30 hover:border-slate-600/50 transition-all duration-500">
+              <Card className="bg-white border border-gray-300 shadow-sm hover:border-gray-400 transition-all duration-500 dark:bg-slate-800/20 dark:border-slate-700/30 dark:hover:border-slate-600/50">
                 <CardContent className="p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <motion.div className="relative" whileHover={{ scale: 1.01 }}>
                       <User
                           className={`absolute left-3 top-3 h-5 w-5 transition-colors duration-300 ${
-                              focusedField === "name" ? "text-slate-300" : "text-slate-400"
+                              focusedField === "name" ? "text-blue-600" : "text-gray-400 dark:text-slate-400"
                           }`}
                       />
                       <Input
                           name="name"
-                          placeholder="Your Name"
+                          placeholder={t('your_name')}
                           value={formData.name}
                           onChange={handleChange}
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover rounded-2xl"
+                          className="
+                        pl-12
+                        bg-white
+                        border border-gray-300
+                        text-gray-900
+                        placeholder-gray-500
+                        focus:border-blue-600
+                        focus:ring-blue-600
+                        rounded-2xl
+                        transition-all duration-300
+                        data-cursor-hover
+                        dark:bg-slate-700/20
+                        dark:border-slate-600/30
+                        dark:text-white
+                        dark:placeholder:text-slate-400
+                      "
                           required
                           data-cursor-hover
                       />
@@ -191,18 +227,33 @@ export function Contact() {
                     <motion.div className="relative" whileHover={{ scale: 1.01 }}>
                       <Mail
                           className={`absolute left-3 top-3 h-5 w-5 transition-colors duration-300 ${
-                              focusedField === "email" ? "text-slate-300" : "text-slate-400"
+                              focusedField === "email" ? "text-blue-600" : "text-gray-400 dark:text-slate-400"
                           }`}
                       />
                       <Input
                           name="email"
                           type="email"
-                          placeholder="Your Email"
+                          placeholder={t('your_email')}
                           value={formData.email}
                           onChange={handleChange}
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 transition-all duration-300 data-cursor-hover rounded-2xl"
+                          className="
+                        pl-12
+                        bg-white
+                        border border-gray-300
+                        text-gray-900
+                        placeholder-gray-500
+                        focus:border-blue-600
+                        focus:ring-blue-600
+                        rounded-2xl
+                        transition-all duration-300
+                        data-cursor-hover
+                        dark:bg-slate-700/20
+                        dark:border-slate-600/30
+                        dark:text-white
+                        dark:placeholder:text-slate-400
+                      "
                           required
                           data-cursor-hover
                       />
@@ -211,17 +262,33 @@ export function Contact() {
                     <motion.div className="relative" whileHover={{ scale: 1.01 }}>
                       <MessageSquare
                           className={`absolute left-3 top-3 h-5 w-5 transition-colors duration-300 ${
-                              focusedField === "message" ? "text-slate-300" : "text-slate-400"
+                              focusedField === "message" ? "text-blue-600" : "text-gray-400 dark:text-slate-400"
                           }`}
                       />
                       <Textarea
                           name="message"
-                          placeholder="Your Message"
+                          placeholder={t('your_message')}
                           value={formData.message}
                           onChange={handleChange}
                           onFocus={() => setFocusedField("message")}
                           onBlur={() => setFocusedField(null)}
-                          className="pl-12 pt-12 bg-slate-700/20 border-slate-600/30 text-white placeholder:text-slate-400 focus:border-slate-500/50 focus:ring-slate-500/25 min-h-[120px] transition-all duration-300 data-cursor-hover rounded-2xl"
+                          className="
+                        pl-12 pt-12
+                        bg-white
+                        border border-gray-300
+                        text-gray-900
+                        placeholder-gray-500
+                        focus:border-blue-600
+                        focus:ring-blue-600
+                        min-h-[120px]
+                        rounded-2xl
+                        transition-all duration-300
+                        data-cursor-hover
+                        dark:bg-slate-700/20
+                        dark:border-slate-600/30
+                        dark:text-white
+                        dark:placeholder:text-slate-400
+                      "
                           required
                           data-cursor-hover
                       />
@@ -230,7 +297,21 @@ export function Contact() {
                     <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
                       <Button
                           type="submit"
-                          className="w-full bg-slate-300 hover:bg-slate-300 transition-all duration-300 rounded-2xl text-slate-800 font-semibold flex items-center justify-center gap-2"
+                          className="
+                        w-full
+                        bg-blue-600
+                        hover:bg-blue-700
+                        text-white
+                        rounded-2xl
+                        font-semibold
+                        flex items-center justify-center gap-2
+                        disabled:bg-gray-300
+                        disabled:text-gray-600
+                        transition-all duration-300
+                        dark:bg-slate-300
+                        dark:text-slate-800
+                        dark:hover:bg-slate-400
+                      "
                           size="lg"
                           disabled={!formData.name || !formData.email || !formData.message}
                       >
@@ -241,7 +322,10 @@ export function Contact() {
 
                   {/* Alerts */}
                   {status === "success" && (
-                      <Alert variant="default" className="mt-6">
+                      <Alert
+                          variant="default"
+                          className="mt-6 bg-green-100 text-green-800 border border-green-300 dark:bg-slate-800 dark:text-green-400"
+                      >
                         <Terminal />
                         <AlertTitle>Message Sent ✅</AlertTitle>
                         <AlertDescription>Thanks! I'll get back to you as soon as I can.</AlertDescription>
@@ -249,7 +333,10 @@ export function Contact() {
                   )}
 
                   {status === "error" && (
-                      <Alert variant="destructive" className="mt-6">
+                      <Alert
+                          variant="destructive"
+                          className="mt-6 bg-red-100 text-red-800 border border-red-300 dark:bg-slate-800 dark:text-red-400"
+                      >
                         <Terminal />
                         <AlertTitle>Something went wrong ❌</AlertTitle>
                         <AlertDescription>Please try again later or contact me directly.</AlertDescription>

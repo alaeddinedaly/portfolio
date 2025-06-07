@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion"
 import { Github, Linkedin, Facebook, Heart, Code } from "lucide-react"
+import {useTranslations} from "next-intl";
 
 export function Footer() {
+  const t = useTranslations();
   const socialLinks = [
     { icon: Github, href: "https://github.com/alaeddinedaly", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/daly-ala-eddine-604411341/", label: "LinkedIn" },
@@ -36,7 +38,7 @@ export function Footer() {
                 cursor-pointer
               "
             >
-              Full-Stack Developer
+              {t('developer')}
             </p>
             <p className="text-slate-500 text-sm mt-1">Tunisia</p>
           </div>
@@ -68,7 +70,7 @@ export function Footer() {
               whileHover={{ scale: 1.02 }}
               className="text-slate-400 flex items-center justify-center md:justify-end gap-2 mb-2"
             >
-              Made with <Heart className="w-4 h-4 text-red-500" fill="currentColor" /> and{" "}
+              {t('made_with')} <Heart className="w-4 h-4 text-red-500" fill="currentColor" /> {t('and')}{" "}
               <Code className="w-4 h-4 text-slate-400" />
             </motion.p>
             <p className="text-slate-500 text-sm">© 2025 Portfolio. All rights reserved.</p>
