@@ -93,7 +93,7 @@ export function Hero() {
                         className="text-xl md:text-2xl text-black dark:text-slate-400 max-w-3xl mx-auto leading-relaxed"
                     >
                         {t("working_at")}
-                        <span className="text-black font-semibold dark:text-slate-400"> SMOFT Tunisia</span>
+                        <span className="text-black font-semibold dark:text-slate-400"></span>
                         {t('crafting')}
                     </motion.p>
 

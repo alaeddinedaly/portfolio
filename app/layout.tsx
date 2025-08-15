@@ -1,19 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import {ToastProvider, ToastViewport} from "@/components/ui/toast";
-import {IntlProvider} from "@/lib/intl-context";
+import { ThemeProvider, useTheme } from "next-themes";
+import { ToastProvider, ToastViewport } from "@/components/ui/toast";
+import { IntlProvider } from "@/lib/intl-context";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-    title: "Portfolio - Full-Stack Developer",
-    description: "Stunning portfolio showcasing modern web development skills and creative projects.",
-    icons: {
-        icon: "/fav.png",
-    },
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -23,16 +17,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             attribute="class"
             defaultTheme="dark"
             enableSystem={false}
-            storageKey={undefined}
+            storageKey="theme"
         >
+            <ThemeSetter />
             <ToastProvider>
-                <IntlProvider>
-                {children}
-                </IntlProvider>
+                <IntlProvider>{children}</IntlProvider>
                 <ToastViewport />
             </ToastProvider>
         </ThemeProvider>
         </body>
         </html>
     );
+}
+
+// Client component to force dark mode after hydration
+function ThemeSetter() {
+    const { setTheme } = useTheme();
+
+    useEffect(() => {
+        setTheme("dark"); // force dark mode every load
+    }, []);
+
+    return null; // does not render anything
 }
