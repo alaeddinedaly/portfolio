@@ -30,7 +30,7 @@ export function Header() {
     { icon: Facebook, href: "https://www.facebook.com/ala.daly.564", label: "Facebook" },
     {
       icon: null, // no icon component here
-      href: "/cvnew.pdf", // link to your CV file or wherever it's hosted
+      href: "/Resume.pdf", // link to your CV file or wherever it's hosted
       label: "CV",
       imageSrc: "/cv.png", // path to your image inside /public folder
     },
