@@ -70,5 +70,17 @@
     "PostgreSQL": "Advanced SQL database",
     "Git": "Version control system",
     "GitHub": "Code collaboration platform"
-  }
+  },
+
+  "lynkai_description": "A web application with JWT authentication built with Angular and Spring Boot. Features a RAG model that uses document chunks as context, enabling intelligent document Q&A and AI-powered summary generation for uploaded files.",
+  "storyboard_description": "An AI-powered storyboard generator using a custom-trained VGG-inspired CNN (67% accuracy) for shot classification and SDXL diffusion pipeline. Generates professional 1024×1024 storyboard images from scripts with camera angle detection and automated annotations.",
+  "nexusdown_description": "A robust download manager featuring infinite retry mechanism on errors and concurrent parallel downloads for maximum speed. Built with Python for reliable and efficient file downloading.",
+  "securefile_description": "A secure cloud storage service inspired by Google Drive, built with Spring Boot. Features JWT authentication, encrypted file storage, and seamless upload/download functionality.",
+  "ocr_description": "An intelligent document scanner using Tesseract OCR to extract text from images and automatically populate forms. Enhanced with Gemini API for advanced text processing and understanding.",
+  "flamebot_description": "A conversational AI chatbot powered by Google's Gemini API. Uses natural language processing and machine learning algorithms to engage in natural-sounding conversations with users.",
+  "finora_description": "A comprehensive financial management mobile application built with React Native and Expo, featuring expense tracking, budgeting tools, and financial insights.",
+  "portfolio_description": "A modern, responsive portfolio website built with Next.js, featuring smooth animations and a beautiful dark theme.",
+  "restaurant_description": "A comprehensive restaurant management system with inventory tracking, order management, and reporting features.",
+  "shooter_description": "An action-packed 2D shooting game built with Unity, featuring multiple levels and engaging gameplay mechanics.",
+  "zipit_description": "A simple and easy-to-use GUI application for compressing folders into ZIP files and extracting ZIP archives."
 }

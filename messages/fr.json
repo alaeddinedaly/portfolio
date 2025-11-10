@@ -70,6 +70,19 @@
     "PostgreSQL": "Base de données SQL avancée",
     "Git": "Système de contrôle de version",
     "GitHub": "Plateforme de collaboration de code"
-  }
+  },
+
+  "lynkai_description": "Une application web avec authentification JWT développée avec Angular et Spring Boot. Elle intègre un modèle RAG qui utilise des fragments de documents comme contexte, permettant un question-réponse intelligent sur les documents et une génération de résumés assistée par IA pour les fichiers téléversés.",
+  "storyboard_description": "Un générateur de storyboards alimenté par l’IA, utilisant un CNN personnalisé inspiré du modèle VGG (67 % de précision) pour la classification des plans et un pipeline de diffusion SDXL. Génère des images de storyboard professionnelles en 1024×1024 à partir de scripts, avec détection des angles de caméra et annotations automatiques.",
+  "nexusdown_description": "Un gestionnaire de téléchargements robuste intégrant un mécanisme de réessais infinis en cas d’erreur et des téléchargements parallèles simultanés pour une vitesse maximale. Développé en Python pour un téléchargement de fichiers fiable et efficace.",
+  "securefile_description": "Un service de stockage cloud sécurisé inspiré de Google Drive, développé avec Spring Boot. Il offre une authentification JWT, un stockage de fichiers chiffré et une fonctionnalité fluide d’envoi et de téléchargement.",
+  "ocr_description": "Un scanner de documents intelligent utilisant Tesseract OCR pour extraire le texte à partir d’images et remplir automatiquement des formulaires. Amélioré grâce à l’API Gemini pour un traitement et une compréhension avancés du texte.",
+  "flamebot_description": "Un chatbot conversationnel alimenté par l’API Gemini de Google. Il utilise le traitement du langage naturel et des algorithmes d’apprentissage automatique pour dialoguer de manière fluide et naturelle avec les utilisateurs.",
+  "finora_description": "Une application mobile complète de gestion financière développée avec React Native et Expo, proposant le suivi des dépenses, des outils de budgétisation et des analyses financières.",
+  "portfolio_description": "Un site portfolio moderne et réactif développé avec Next.js, présentant des animations fluides et un superbe thème sombre.",
+  "restaurant_description": "Un système complet de gestion de restaurant avec suivi des stocks, gestion des commandes et fonctionnalités de reporting.",
+  "shooter_description": "Un jeu de tir 2D plein d’action développé avec Unity, comprenant plusieurs niveaux et des mécaniques de jeu captivantes.",
+  "zipit_description": "Une application GUI simple et facile à utiliser pour compresser des dossiers en fichiers ZIP et extraire des archives ZIP."
+
 
 }

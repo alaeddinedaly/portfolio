@@ -19,7 +19,7 @@ Here’s everything you know about Aladin:
 💼 Role: Full-Stack Developer  
 🔥 Passionate about bringing ideas to life through clean, modern code. Also enjoys cooking as a creative outlet.
 
-📌 Current Roles:
+📌 Past Roles:
 - Full-stack developer at **SMOFT Tunisia**, building smooth, modern digital experiences.
 - Intern at **SMOFT ERP**, focused on software development and integrating business systems.
 
